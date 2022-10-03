@@ -11,6 +11,8 @@ import java.util.function.Function;
  * @since 2016-09-19
  */
 public class CollectionUtils {
+    protected CollectionUtils() {
+    }
 
     private static final int MAX_POWER_OF_TWO = 1 << (Integer.SIZE - 2);
 
@@ -55,31 +57,6 @@ public class CollectionUtils {
     }
 
     /**
-     * 创建默认HashMap
-     *
-     * @param <K> K
-     * @param <V> V
-     * @return HashMap
-     * @since 3.4.0
-     */
-    public static <K, V> HashMap<K, V> newHashMap() {
-        return new HashMap<>();
-    }
-
-    /**
-     * 根据预期大小创建HashMap.
-     *
-     * @param expectedSize 预期大小
-     * @param <K>          K
-     * @param <V>          V
-     * @return HashMap
-     * @since 3.4.0
-     */
-    public static <K, V> HashMap<K, V> newHashMapWithExpectedSize(int expectedSize) {
-        return new HashMap<>(capacity(expectedSize));
-    }
-
-    /**
      * 用来过渡下Jdk1.8下ConcurrentHashMap的性能bug
      * <a href="https://bugs.openjdk.java.net/browse/JDK-8161372">
      * ConcurrentHashMap.computeIfAbsent(k,f) locks bin when k present
@@ -108,7 +85,7 @@ public class CollectionUtils {
      *
      * @since 3.4.0
      */
-    private static int capacity(int expectedSize) {
+    protected static int capacity(int expectedSize) {
         if (expectedSize < 3) {
             if (expectedSize < 0) {
                 throw new IllegalArgumentException("expectedSize cannot be negative but was: " + expectedSize);
