@@ -1,8 +1,8 @@
-package com.mtrsz.dpms.common.utils.lambda;
+package cn.vskendo.utils.lambda.cache;
 
 
-
-import com.mtrsz.dpms.common.utils.CollectionUtils;
+import cn.vskendo.utils.CollectionUtils;
+import cn.vskendo.utils.lambda.support.ReflectionKit;
 
 import java.lang.reflect.Field;
 import java.util.List;

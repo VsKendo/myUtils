@@ -1,8 +1,8 @@
-package com.mtrsz.dpms.common.utils.lambda;
+package cn.vskendo.utils.lambda.support;
 
 
+import cn.vskendo.utils.CollectionUtils;
 import com.baomidou.mybatisplus.core.toolkit.SetAccessibleAction;
-import com.mtrsz.dpms.common.utils.CollectionUtils;
 import org.springframework.util.Assert;
 
 import java.lang.reflect.AccessibleObject;
@@ -19,11 +19,11 @@ import static java.util.function.Function.identity;
 import static java.util.stream.Collectors.toMap;
 
 /**
- * 反射工具类，提供反射相关的快捷操作（基于 Mybatis plus 源码改写）
+ * 反射工具类，提供反射相关的快捷操作
  *
- * @author  hcl, Caratacus
- * @author vskendo
- * @since 2022-09-04
+ * @author Caratacus
+ * @author hcl
+ * @since 2016-09-22
  */
 public final class ReflectionKit {
     /**

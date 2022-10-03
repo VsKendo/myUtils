@@ -1,4 +1,4 @@
-package com.mtrsz.dpms.common.utils.lambda;
+package cn.vskendo.utils;
 
 
 import com.baomidou.mybatisplus.core.toolkit.ReflectionKit;
@@ -13,7 +13,7 @@ import java.util.Locale;
 /**
  * Lambda 解析工具类
  *
- * @author HCL, MieMie, Vskendo
+ * @author HCL, MieMie
  * @since 2018-05-10
  */
 public final class LambdaExtractUtils {

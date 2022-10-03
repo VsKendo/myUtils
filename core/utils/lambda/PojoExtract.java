@@ -1,5 +1,7 @@
-package com.mtrsz.dpms.common.utils.lambda;
+package cn.vskendo.utils;
 
+import cn.vskendo.utils.lambda.cache.FieldCacheMap;
+import cn.vskendo.utils.lambda.support.ReflectionKit;
 import org.springframework.util.Assert;
 
 import java.lang.reflect.Field;
@@ -7,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 解析一个对象的所有字段并缓存。
+ * PojoExtract
  *
  * @author vskendo
  * @since 2022/8/31
