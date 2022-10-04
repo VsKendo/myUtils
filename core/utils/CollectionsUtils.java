@@ -1,10 +1,14 @@
 package cn.vskendo.utils;
 
 
+import org.apache.poi.ss.formula.functions.T;
+
 import java.util.*;
+import java.util.function.BiPredicate;
+import java.util.function.Function;
 
 /**
- * CollectionsUtils
+ * CollectionsUtils 工具类，提供常见集合操作
  *
  * @author vskendo
  * @since 2022/10/3
@@ -62,6 +66,55 @@ public class CollectionsUtils extends cn.vskendo.utils.CollectionUtils {
             map.put((K) objects[i], (V) objects[i + 1]);
         }
         return map;
+    }
+
+    /**
+     * b中的任意元素是否在a中，相当于 a.contains(b)
+     * 效率较低，请勿用于大量数据间的对比
+     *
+     * @return 包含返回true
+     */
+    public static <T> boolean contains(Collection<T> a, Collection<T> b) {
+        // 如果b为空，那么取决于a是否为空，如果大家都是空，则默认包含，因为空集合包含空集合
+        if (isEmpty(b)) {
+            return isEmpty(a);
+        }
+        if (isEmpty(a)) {
+            return false;
+        }
+        for (T t : b) {
+            if (a.contains(t)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 是否包含
+     *
+     * @param tKeyGetter 键值提取函数
+     * @param hKeyGetter 键值提取函数
+     * @return 包含返回true
+     */
+    public static <T, H> boolean contains(Collection<T> a, Collection<H> b, Function<T, String> tKeyGetter, Function<H, String> hKeyGetter) {
+        // 如果b为空，那么取决于a是否为空，如果大家都是空，则默认包含，因为空集合包含空集合
+        if (isEmpty(b)) {
+            return isEmpty(a);
+        }
+        if (isEmpty(a)) {
+            return false;
+        }
+        Map<String, T> cache = HashMap();
+        for (T t : a) {
+            cache.put(tKeyGetter.apply(t), t);
+        }
+        for (H h : b) {
+            if (cache.containsKey(hKeyGetter.apply(h))) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

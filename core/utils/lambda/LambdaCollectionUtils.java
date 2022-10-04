@@ -5,13 +5,13 @@ import java.util.*;
 import java.util.function.Function;
 
 /**
- * Collection工具类
+ * LambdaCollectionUtils 工具类
  *
  * @author Caratacus
  * @since 2016-09-19
  */
-public class CollectionUtils {
-    protected CollectionUtils() {
+public class LambdaCollectionUtils {
+    private LambdaCollectionUtils() {
     }
 
     private static final int MAX_POWER_OF_TWO = 1 << (Integer.SIZE - 2);

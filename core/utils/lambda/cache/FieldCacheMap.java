@@ -1,7 +1,7 @@
 package cn.vskendo.utils.lambda.cache;
 
 
-import cn.vskendo.utils.CollectionUtils;
+import cn.vskendo.utils.lambda.LambdaCollectionUtils;
 import cn.vskendo.utils.lambda.support.ReflectionKit;
 
 import java.lang.reflect.Field;
@@ -34,13 +34,13 @@ public class FieldCacheMap {
     }
 
     public static List<Field> getFieldList(Class<?> clazz) {
-        return CollectionUtils.computeIfAbsent(fieldListMap, clazz.getName(), (key) ->
+        return LambdaCollectionUtils.computeIfAbsent(fieldListMap, clazz.getName(), (key) ->
                 ReflectionKit.getFieldList(clazz, false)
         );
     }
 
     public static List<Field> getFieldList(Class<?> clazz, boolean isIncludeSuperClass) {
-        return CollectionUtils.computeIfAbsent(fieldListMap, clazz.getName(), (key) ->
+        return LambdaCollectionUtils.computeIfAbsent(fieldListMap, clazz.getName(), (key) ->
                 ReflectionKit.getFieldList(clazz, isIncludeSuperClass)
         );
     }
